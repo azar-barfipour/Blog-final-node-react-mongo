@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import classes from "./Login.module.css";
 import Register from "../components/auth/Register";
 import { UserContext } from "../context/userContext";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { loginActions } from "../store/auth";
 
 const Login = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [isRegister, setIsRegister] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -57,7 +57,7 @@ const Login = () => {
         } else {
           const data = await response.json();
           // setUserContext(data);
-          // dispatch(loginActions.login(data.token));
+          dispatch(loginActions.login(data.token));
           serError(false);
           navigate("/");
           console.log(data);
@@ -71,6 +71,12 @@ const Login = () => {
   const isRegisterHandler = (e) => {
     e.preventDefault();
     setIsRegister(!isRegister);
+  };
+
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    dispatch(loginActions.logout());
+    navigate("/");
   };
 
   return (
@@ -95,7 +101,11 @@ const Login = () => {
             <small>please insert your email or password</small>
           </p>
         )}
-        {error && <p>Something went wrong! Please try again...</p>}
+        {error && (
+          <p className={classes.error}>
+            <small>Something went wrong! Please try again...</small>
+          </p>
+        )}
         <button
           type="submit"
           className={`${classes["form__btn"]} ${
@@ -105,6 +115,15 @@ const Login = () => {
           Login
         </button>
       </form>
+      <button
+        onClick={logoutHandler}
+        type="submit"
+        className={`${classes["form__btn"]} ${
+          isValid ? classes["disabled"] : ""
+        }`}
+      >
+        Logout
+      </button>
       {/* create a row with or in it */}
       <hr></hr>
       <button className={classes["account__btn"]} onClick={isRegisterHandler}>

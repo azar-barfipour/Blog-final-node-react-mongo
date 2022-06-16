@@ -27,6 +27,7 @@ const Home = () => {
               body={post.body}
               image={post.image}
               _id={post._id}
+              token={post.token}
               setPostData={setPostData}
             />
           );

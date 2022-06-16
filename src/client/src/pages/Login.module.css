@@ -15,7 +15,7 @@
 .form__btn {
   text-align: center;
   padding: 0.5rem;
-  margin: 1rem 0;
+  margin: 1rem 0.5rem;
   background-color: rgb(153, 0, 0);
   color: rgb(236, 231, 231);
   font-size: 1rem;

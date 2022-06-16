@@ -35,3 +35,11 @@
 .btn__isLiked {
   color: rgb(255, 0, 0);
 }
+
+.comment {
+  border: 1px solid #000;
+  width: 50%;
+  border-radius: 2rem;
+  padding: 1rem;
+  background-color: azure;
+}
