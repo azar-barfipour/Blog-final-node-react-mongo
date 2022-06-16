@@ -33,7 +33,8 @@
     "start": "node src/server.js",
     "server": "nodemon src/server.js",
     "client": "npm start --prefix src/client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
+    "heroku-postbuild": "cd src/client && npm install && npm run build"
   },
   "eslintConfig": {
     "extends": [
