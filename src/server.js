@@ -9,14 +9,14 @@ const cors = require("cors");
 const port = process.env.PORT || 4000;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "src/client/build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 app.use(cors());
 const postsRouter = require("./routes/posts");
 app.use("/api/", require("./routes/index"));
 app.use("/server/", postsRouter);
 
 app.get("*", (req, res, next) =>
-  res.sendFile(path.join(__dirname + "src/client/build/index.html"))
+  res.sendFile(path.join(__dirname + "client/build/index.html"))
 );
 
 // catch all middleware/route
