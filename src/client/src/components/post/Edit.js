@@ -13,7 +13,7 @@ const Edit = () => {
   const [inputText, setInputText] = useState("");
   const [inputImages, setInputImages] = useState([]);
   const [ImagesURL, setImagesURL] = useState();
-  const [postData, setPostData] = useState();
+  const [postData, setPostData] = useState({ title: "", body: "" });
   const [isEmpty, setIsEmpty] = useState(false);
 
   // get the post data by id from database
@@ -24,10 +24,14 @@ const Edit = () => {
           console.log("Something went wrong! Please try again...");
         else {
           const data = await response.json();
-          setPostData(data);
+          console.log(data);
+          setPostData({ title: data.title, body: data.body });
         }
       })
       .catch();
+    return () => {
+      setPostData({ title: "", body: "" });
+    };
   }, []);
 
   useEffect(() => {
@@ -44,6 +48,7 @@ const Edit = () => {
   const inputTitileHandler = (e) => {
     setIsEmpty(false);
     setInputTitle(e.target.value);
+    setPostData((prev) => ({ ...prev, title: e.target.value }));
   };
   const inputTextHandler = (e) => {
     setIsEmpty(false);
