@@ -1,0 +1,17 @@
+.comment {
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2rem;
+  background-color: #f8f8f8;
+  resize: none;
+  margin-bottom: 0.5rem;
+}
+.comment__text {
+  background-color: rgb(239, 238, 238);
+  border-radius: 0.5rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+}

@@ -1,0 +1,14 @@
+.footer {
+  background-color: black;
+  color: aliceblue;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 2rem;
+}
+.footer__text {
+  display: inline-block;
+  margin: 0.5rem;
+  text-align: center;
+}
